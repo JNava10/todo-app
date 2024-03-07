@@ -4,10 +4,8 @@ class Server {
 
     constructor() {
         this.app = express();
-        this.rootEndpoint = '/api';
         this.middlewares();
         this.routes();
-
     }
 
     middlewares() {
@@ -16,11 +14,14 @@ class Server {
     }
 
     routes() {
-        this.app.use(`${this.rootEndpoint}/user`, require('../routes/user.routes'));
+        this.app.use(`/${process.env.ROOT_ENDPOINT}/user`, require('../routes/user.routes'));
     }
 
-    listen() {
-        this.app.listen(process.env.PORT)
+    listen(port) {
+        this.app.listen(port, () => {
+            console.log(`Server listening on: http://${process.env.HOST_IP}:${port}/${process.env.ROOT_ENDPOINT
+            }`);
+        });
     }
 }
 
