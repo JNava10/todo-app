@@ -10,6 +10,8 @@ La idea es hacer una aplicacion estilo Google Tasks. Microsoft ToDo, Todoist…
 - Asignar una o varias etiquetas a una tarea **facilmente**
 - Hacer que una lista pueda eliminar sus tareas cada x tiempo automáticamente
 - Varias listas
+- Buscar tareas
+- Buscar listas
 - Poder agregar una fecha de vencimiento a las tareas:
     - Hoy
     - Mañana
