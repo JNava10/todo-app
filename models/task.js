@@ -18,11 +18,17 @@ module.exports = (sequelize, DataTypes) => {
   }
   Task.init({
     id: {
+      autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
     },
     name: DataTypes.STRING,
-    dueDate: DataTypes.DATE,
+    dueDate: {
+      type:  DataTypes.DATE
+    },
+    completed: {
+      type:  DataTypes.BOOLEAN,
+    }
   }, {
     sequelize,
     modelName: 'Task',
