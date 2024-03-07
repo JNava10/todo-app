@@ -26,9 +26,9 @@ class TaskController {
     }
 
     static delete = async (req, res) => {
-        const task = await TaskQuery.delete(req.params.id);
+        const deleted = await TaskQuery.delete(req.params.id);
 
-        return res.status(200).json(task);
+        return res.status(200).json(deleted === 1);
     }
 }
 

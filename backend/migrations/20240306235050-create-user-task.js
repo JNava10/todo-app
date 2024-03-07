@@ -6,12 +6,20 @@ module.exports = {
       taskId: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Task',
+          key: 'id',
+        },
       },
       userId: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.DATE
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'User',
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,

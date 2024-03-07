@@ -15,6 +15,7 @@ class Server {
 
     routes() {
         this.app.use(`/${process.env.ROOT_ENDPOINT}/user`, require('../routes/user.routes'));
+        this.app.use(`/${process.env.ROOT_ENDPOINT}/task`, require('../routes/task.routes'));
     }
 
     listen(port) {
