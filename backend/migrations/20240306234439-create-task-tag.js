@@ -2,16 +2,28 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('TaskTags', {
+    await queryInterface.createTable('task_tags', {
       taskId: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'tasks'
+          },
+          key: 'id',
+        },
       },
       tagId: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.DATE
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'tags'
+          },
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,
@@ -20,6 +32,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('TaskTags');
+    await queryInterface.dropTable('task_tags');
   }
 };
