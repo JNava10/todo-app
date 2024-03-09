@@ -22,8 +22,6 @@ class AuthController {
 
         // TODO: Check roles
 
-        console.log(process.env)
-
         const token = jwt.sign({ userId: user.id }, process.env.SECRETORPRIVATEKEY);
 
         return res.status(200).json({

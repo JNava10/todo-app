@@ -36,6 +36,8 @@ export class LoginComponent {
     ).subscribe(body => {
       if (!body.token || body.userId) return
 
+      console.log(body)
+
       this.cookieService.set('token', body.token)
       this.cookieService.set('userId', body.userId.toString())
 
