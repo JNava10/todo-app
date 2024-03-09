@@ -17,6 +17,16 @@ module.exports = {
         type: Sequelize.STRING,
         unique: true
       },
+      author: {
+        type: Sequelize.INTEGER,
+        nullable: false,
+        references: {
+          model: {
+            tableName: 'users'
+          },
+          key: 'id',
+        },
+      },
       password: {
         type: Sequelize.STRING
       },

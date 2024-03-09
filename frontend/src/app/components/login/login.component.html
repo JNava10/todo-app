@@ -1,0 +1,33 @@
+<section>
+    <tui-input
+            formControlName="testValue"
+            tuiTextfieldSize="s"
+            [tuiTextfieldCleaner]="true"
+    >
+        Type an email
+        <input
+                autocomplete="email"
+                tuiTextfield
+                type="email"
+        />
+    </tui-input>
+
+    <tui-input-password
+            formControlName="password"
+            tuiTextfieldSize="s"
+    >
+        Type a password
+        <input
+                placeholder="Make it secure!"
+                tuiTextfield
+        /></tui-input-password>
+
+    <button
+            appearance="primary"
+            tuiButton
+            type="button"
+            class="tui-space_right-3 tui-space_bottom-3"
+    >
+        Login
+    </button>
+</section>

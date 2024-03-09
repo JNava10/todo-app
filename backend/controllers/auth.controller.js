@@ -1,17 +1,18 @@
 const UserQuery = require("../query/user.query");
 const jwt = require("jsonwebtoken");
+require('dotenv').config()
 
 class AuthController {
     static login = async (req, res) => {
         let user;
 
         if (req.body.nickName) {
-            user = await UserQuery.findUserByEmail(
+            user = await UserQuery.findUserByNickname(
                 req.body.nickName,
             );
         } else {
             user = await UserQuery.findUserByEmail(
-                req.body.nickName,
+                req.body.email,
             );
         }
 
@@ -20,6 +21,8 @@ class AuthController {
         }
 
         // TODO: Check roles
+
+        console.log(process.env)
 
         const token = jwt.sign({ userId: user.id }, process.env.SECRETORPRIVATEKEY);
 

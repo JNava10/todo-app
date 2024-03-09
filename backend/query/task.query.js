@@ -1,9 +1,24 @@
 const models = require("../models");
 
 class TaskQuery {
-    static save = async (name) => {
+    static save = async (name, userId) => {
         try {
-            return await models.Task.create({name: name});
+            const taskData = {
+                name: name
+            }
+
+            const task = await models.Task.create(taskData);
+
+            console.log(task)
+
+            const userTaskData = {
+                taskId: task.id,
+                userId: userId
+            }
+
+            await models.UserTask.create(userTaskData)
+
+            return task
         } catch (e) {
             console.error(e)
             return false;

@@ -1,8 +1,9 @@
 const TaskQuery = require("../query/task.query");
+const models = require('../models/index')
 
 class TaskController {
     static save = async (req, res) => {
-        const task = await TaskQuery.save(req.body.name);
+        const task = await TaskQuery.save(req.body.name, req.userId);
 
         return res.status(200).json(task);
     }

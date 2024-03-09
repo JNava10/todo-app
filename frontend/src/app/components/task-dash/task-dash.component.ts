@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {TuiInputModule} from "@taiga-ui/kit";
 import {FormsModule} from "@angular/forms";
 import {TuiTextfieldControllerModule} from "@taiga-ui/core";
+import {TaskService} from "../../services/task.service";
 
 @Component({
   selector: 'app-task-dash',
@@ -15,6 +16,12 @@ import {TuiTextfieldControllerModule} from "@taiga-ui/core";
   styleUrl: './task-dash.component.css'
 })
 export class TaskDashComponent {
+  constructor(private taskService: TaskService) {}
+
   taskName?: string;
+
+  add(name: string): void {
+    // this.taskService.createTask(name)
+  }
 
 }
